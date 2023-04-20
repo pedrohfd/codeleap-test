@@ -1,5 +1,6 @@
 import React from 'react'
 import { AnimatedView, Container } from './styles'
+import { useNavigation } from '@react-navigation/native'
 import CImage from '../../assets/c.svg'
 import OImage from '../../assets/o.svg'
 import DImage from '../../assets/d.svg'
@@ -7,8 +8,14 @@ import EImage from '../../assets/e.svg'
 import LImage from '../../assets/l.svg'
 import AImage from '../../assets/a.svg'
 import PImage from '../../assets/p.svg'
+import { StackScreenNavigationProps } from '../../types/StackNavigatorParamList'
 
 export const Splash = () => {
+  const navigation = useNavigation<StackScreenNavigationProps>()
+  setTimeout(() => {
+    navigation.navigate('SignUp')
+  }, 2000)
+
   return (
     <Container>
       <AnimatedView
