@@ -1,5 +1,6 @@
-import { Splash } from './src/pages/Splash'
+import { Route } from './src/routes'
+import 'react-native-gesture-handler'
 
 export default function App() {
-  return <Splash />
+  return <Route />
 }
