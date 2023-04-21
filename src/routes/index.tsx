@@ -3,7 +3,7 @@ import {
   TransitionPresets,
 } from '@react-navigation/stack'
 import { NavigationContainer } from '@react-navigation/native'
-import { SignUp } from '../pages/SignUp'
+import { Main } from '../pages/Main'
 import { Splash } from '../pages/Splash'
 
 export const AppRoutes = () => {
@@ -14,7 +14,7 @@ export const AppRoutes = () => {
     screenOptions: { headerShown: false },
   }
 
-  const signUpScreenProps = {
+  const mainScreenProps = {
     ...TransitionPresets.ModalFadeTransition,
   }
 
@@ -22,7 +22,7 @@ export const AppRoutes = () => {
     <NavigationContainer>
       <Navigator {...stackNavigatorProps}>
         <Screen name='Splash' component={Splash} />
-        <Screen name='SignUp' component={SignUp} options={signUpScreenProps} />
+        <Screen name='SignUp' component={Main} options={mainScreenProps} />
       </Navigator>
     </NavigationContainer>
   )
