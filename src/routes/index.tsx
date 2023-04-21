@@ -1,20 +1,29 @@
+import {
+  createStackNavigator,
+  TransitionPresets,
+} from '@react-navigation/stack'
 import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack'
-import { Splash } from '../pages/Splash'
 import { SignUp } from '../pages/SignUp'
+import { Splash } from '../pages/Splash'
 
-export const Route = () => {
-  const Stack = createStackNavigator()
+export const AppRoutes = () => {
+  const { Navigator, Screen } = createStackNavigator()
+
+  const stackNavigatorProps = {
+    initialRouteName: 'Splash',
+    screenOptions: { headerShown: false },
+  }
+
+  const signUpScreenProps = {
+    ...TransitionPresets.ModalFadeTransition,
+  }
 
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName='Splash'
-        screenOptions={{ headerShown: false }}
-      >
-        <Stack.Screen name='Splash' component={Splash} />
-        <Stack.Screen name='SignUp' component={SignUp} />
-      </Stack.Navigator>
+      <Navigator {...stackNavigatorProps}>
+        <Screen name='Splash' component={Splash} />
+        <Screen name='SignUp' component={SignUp} options={signUpScreenProps} />
+      </Navigator>
     </NavigationContainer>
   )
 }
